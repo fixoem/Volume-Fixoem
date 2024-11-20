@@ -1,0 +1,52 @@
+{% assign namespaceDiscountValues = "app--168164950017--DiscountValues" %}
+{% assign namespaceDiscountPercentage = "app--168164950017--DiscountPercentage" %}
+
+<div class="container-campaigns">
+
+  <!-- Asegúrate de que los metafields sean arrays -->
+  {% assign discountValues = block.settings.product_selector.metafields[namespaceDiscountValues].DiscountValues.value %}
+  {% assign discountPercentages = block.settings.product_selector.metafields[namespaceDiscountPercentage].DiscountPercentage.value %}
+
+  <!-- Validación para asegurarse de que ambos metafields tienen datos -->
+  {% if discountValues and discountPercentages %}
+    <h6 class="proomo_boster_title">
+      <strong>Descuentos por volumen</strong>
+      <br>
+      <span>El descuento se vera reflejado en el carrito</span>
+    </h6>
+
+    <!-- Recorre las listas y muestra las opciones -->
+    {% for discount in discountValues %}
+      {% assign index = forloop.index0 %}
+      {% assign value = discount %}
+      {% assign percentage = discountPercentages[index] %}
+
+      {% if value and percentage %}
+        <div class="container-campaign">
+          Compra <span class="form__custom__value">{{ value }}</span> obten <span class="form__custom__value">{{ percentage }}%</span> de descuento
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Table Offer",
+  "target": "section",
+  "stylesheet": "product_booster_offer.min.css",
+  "javascript": "product_booster_offer.min.js",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_selector",
+      "label": "Product",
+      "autofill": true
+    }
+  ]
+}
+{% endschema %}
+
+

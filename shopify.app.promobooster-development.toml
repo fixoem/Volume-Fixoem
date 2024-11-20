@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "c15b4455f90a7b4c7cb6f5977e43ce5e"
+name = "promobooster-development"
+handle = "promobooster-development-1"
+application_url = "https://benchmark-vid-alter-explain.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "developmentstorequick.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_discounts,read_products,write_discounts,write_products"
+
+[auth]
+redirect_urls = [
+  "https://benchmark-vid-alter-explain.trycloudflare.com/auth/callback",
+  "https://benchmark-vid-alter-explain.trycloudflare.com/auth/shopify/callback",
+  "https://benchmark-vid-alter-explain.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false

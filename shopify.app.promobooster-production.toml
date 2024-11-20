@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "dda01c9923df68050d86d5605910e2da"
+name = "promobooster-production"
+handle = "promobooster-production"
+application_url = "https://comp-gathering-canyon-teen.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-978c50de.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_discounts,read_products,write_discounts,write_products"
+
+[auth]
+redirect_urls = [
+  "https://comp-gathering-canyon-teen.trycloudflare.com/auth/callback",
+  "https://comp-gathering-canyon-teen.trycloudflare.com/auth/shopify/callback",
+  "https://comp-gathering-canyon-teen.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false
